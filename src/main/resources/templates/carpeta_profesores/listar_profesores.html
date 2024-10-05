@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="plantilla/plantilla_base::head">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Docente Nuevo</title>
+</head>
+
+<body>
+
+	<main>
+
+		<header th:include="plantilla/plantilla_base::header">
+
+		</header>
+
+
+
+		<div class="container my-4">
+
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+
+
+					<div class="card-header text-center row d-flex justify-content-center">
+						<h3 th:text="${titulo_lista_profesores}"></h3>
+					</div>
+
+
+
+
+					<a th:href="@{/profesores/nuevo}"> <button type="submit" th:href="@{/estudiantes/guardar}"
+							class="btn btn-info mt-2">
+							<i class="fa fa-plus-circle"></i> Nuevo Docente </button></a>
+					<table class="table table-bordered table-striped mt-2 "
+						style="white-space: nowrap; overflow-x: auto; ">
+						<thead>
+							<tr>
+								<th style="visibility:collapse; display:none;" scope="col"></th>
+
+								<th>Nombre</th>
+								<th>Apellido</th>
+								<th>Tipo Documento</th>
+								<th>N Docmento</th>
+								<th>Contacto</th>
+								<th>Especialidad</th>
+								<th>T Sangre</th>
+								<th>Correo</th>
+								<th>Sexo</th>
+								<th>F.Ingreso</th>
+								<th>Estado</th>
+								<th colspan="2">Aciones</th>
+
+							</tr>
+						</thead>
+
+						<tbody class="table-group-divider">
+							<tr th:each="iterndo_estudiante: ${var_list_estud}">
+								<td style="visibility:collapse; display:none;" th:text="${iterndo_estudiante.id}"></td>
+								<td th:text="${iterndo_estudiante.nombre}"></td>
+								<td th:text="${iterndo_estudiante.apellido}"></td>
+								<td th:text="${iterndo_estudiante.tipo_documento}"></td>
+								<td th:text="${iterndo_estudiante.documento}"></td>
+								<td th:text="${iterndo_estudiante.contacto}"></td>
+								<td th:text="${iterndo_estudiante.sangre}"></td>
+								<td th:text="${iterndo_estudiante.correo}"></td>
+								<td th:text="${iterndo_estudiante.sexo}"></td>
+								<td th:text="${iterndo_estudiante.fecha_ingreso}"></td>
+								<td th:text="${iterndo_estudiante.estado}"></td>
+
+								<td><a class="btn btn-warning">Editar</a> </td>
+								<td><a class="btn btn-danger">Eliminar</a> </td>
+							</tr>
+						</tbodY>
+
+					</table>
+
+				</div>
+			</div>
+		</div>
+
+
+	</main>
+	<!--  PIE DE PAGINA -->
+
+	<div th:include="plantilla/plantilla_base::footer" class="mb-1 fixed-bottom">
+		<footer class="py-2 bg-dark">
+			<div class="container">
+				<p class="m-0 text-center text-white">Copyright m10_codea &copy; Instituto 2024 </p>
+			</div>
+			<!-- /.container -->
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+				integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+				crossorigin="anonymous"></script>
+
+		</footer>
+	</div>
+
+
+</body>
+
+</html>

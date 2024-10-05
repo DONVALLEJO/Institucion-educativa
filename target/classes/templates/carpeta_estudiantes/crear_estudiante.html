@@ -1,0 +1,187 @@
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+	<title>Instituto M10</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	<!-- Bootstrap CSS v4.4.0 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+		integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+
+<body>
+	<header>
+		<!--  BARRA NAVEGACION -->
+		<nav class="navbar navbar-expand-lg  navbar-dark  bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">MyLogo</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" th:href="@{/estudiantes/}">Inicio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/estudiantes/}">Estudiantes</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{libros/}">Matriculas</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+								aria-expanded="false">
+								Consultas
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Libros por Autor</a></li>
+								<li><a class="dropdown-item" href="#">Libros por Editorial</a></li>
+								<li><a class="dropdown-item" href="#">Libros por Fecha</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<main>
+
+		<div class="container mt-1">
+			<div class="row justify-content-center">
+				<a class="col-md-6">
+
+
+					<div class="card-mt-5">
+						<!--<div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div > -->
+
+						<div class="card-header text-center bg-info   ">
+						
+							<h4  th:text="${titulo_crear_estudiante}"></h4>
+							
+							<!-- pIMPRIMO EL TITULOe -->
+						</div>
+						<div class="card-body">
+
+							<form method="post" th:action="@{/estudiantes/guardar}" th:object="${obj_estudiante}">
+
+
+								<div class="row form-group">
+									<label class="col-md-3">Nombres</label>
+									<input type="text" name="nombre" th:field="*{nombre}" class="form-control col-md-8">
+								</div>
+
+
+								<div class="row form-group">
+									<label class="col-md-3">Apellido</label>
+									<input type="text" name="apellido" th:field="*{apellido}"
+										class="form-control col-md-8">
+								</div>
+
+
+
+								<div class="row form-group">
+									<label class="col-md-3">tipo doc</label>
+									<input type="text" name="tipo_documento" th:field="*{tipo_documento}"
+										class="form-control col-md-8">
+								</div>
+
+
+								<div class="row form-group">
+									<label class="col-md-3"> N.Documento</label>
+									<input type="text" name="documento" th:field="*{documento}"
+										class="form-control col-md-8">
+								</div>
+
+
+
+								<div class="row form-group">
+									<label class="col-md-3"> Contacto</label>
+									<input type="number" name="contacto" th:field="*{contacto}"
+										class="form-control col-md-8">
+								</div>
+
+
+								<div class="row form-group">
+									<label class="col-md-3">Sexo</label>
+									<input type="text" name="sexo" th:field="*{sexo}" class="form-control col-md-8">
+								</div>
+
+								<div class="row form-group">
+									<label class="col-md-3"> Sangre</label>
+									<input type="text" name="sangre" th:field="*{sangre}" class="form-control col-md-8">
+								</div>
+
+
+								<div class="row form-group">
+									<label class="col-md-3">Correo</label>
+									<input type="email" name="correo" th:field="*{correo}"
+										class="form-control col-md-8">
+
+								</div>
+
+
+							
+
+								
+
+
+
+								<div class="row form-group">
+									<label class="col-md-3"> fecha Ingreso</label>
+									<input type="date" class="form-control col-md-8" th:field="*{fecha_ingreso}">
+
+
+
+									<button type="submit" class="btn btn-info col-md-8 offset-3 mt-3">
+										<i class="fa fa-save"></i>
+										Guardar </button>
+
+
+								</div>
+
+
+							</form>
+
+
+
+						</div>
+
+					</div>
+
+
+					<!--<button class="btn btn-success mt-5"> <a th:href="@{/estudiantes}"> <i class="fa fa-list" aria-hidden="true"></i> </ath>  Listado Estudiantes</button>-->
+			</div>
+		</div>
+		</div> <!-- container -->
+	</main>
+	<!--  PIE DE PAGINA -->
+	<!-- Footer -->
+	<div th:fragment="footer" class="mb-1 fixed-bottom">
+		<footer class="py-2 bg-dark">
+			<div class="container">
+				<p class="m-0 text-center text-white">Copyright m10_codea &copy; Instituto 2024 </p>
+			</div>
+			<!-- /.container -->
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+				integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+				crossorigin="anonymous"></script>
+
+		</footer>
+	</div>
+
+
+</body>
+
+</html>
